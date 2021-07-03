@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BarangexportController;
+use App\Http\Controllers\BarangimportController;
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,4 +26,8 @@ Route::get('/admin', function () {
     return view('admin.index');
 });
 
-Route::resource('user', AdminController::class);
+Route::resources([
+    'customers' => CustomerController::class,
+    'barang-import' => BarangimportController::class,
+    'barang-export' => BarangexportController::class,
+]);
