@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 @section('title')
-    Data Customers
+    Data Barang Import
 @endsection
 @section('content')
     <div class="container-fluid">
@@ -9,22 +9,30 @@
                 <thead>
                     <tr>
                         <th>Nama</th>
-                        <th>Barang Import</th>
-                        <th>Barang Export</th>
+                        <th>Jenis</th>
+                        <th>Asal</th>
+                        <th>Tanggal Import</th>
+                        <th>Foto</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($customers as $customer)
+                    @forelse ($barangImport as $barang)
                     <tr>
                         <td>
-                            {{ $customer->nama }}
+                            {{ $barang->nama }}
                         </td>
                         <td>
-                            {{ $customer->nama }}
+                            {{ $barang->jenis }}
                         </td>
                         <td>
-                            {{ $customer->nama }}
+                            {{ $barang->asal }}
+                        </td>
+                        <td>
+                            {{ $barang->tanggal_import }}
+                        </td>
+                        <td>
+                            <img src="{{ $barang->foto }}" alt="" width="100px">
                         </td>
                         <td>
                             <div class="row">

@@ -59,11 +59,10 @@
           <ul class="sidebar-menu">
               <li class="menu-header">Dashboard</li>
               <li class="nav-item">
-                <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
-                <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Customer</span></a>
-                <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Barang Import</span></a>
-                <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Barang Export</span></a>
-                <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Logout</span></a>
+                <a href="admin" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+                <a href="{{ route('customers.index') }}" class="nav-link"><i class="fas fa-fire"></i><span>Customer</span></a>
+                <a href="{{ route('barang-import.index') }}" class="nav-link"><i class="fas fa-fire"></i><span>Barang Import</span></a>
+                <a href="{{ route('barang-export.index') }}" class="nav-link"><i class="fas fa-fire"></i><span>Barang Export</span></a>
               </li>
         </aside>
       </div>
@@ -81,10 +80,7 @@
       </div>
       <footer class="main-footer">
         <div class="footer-left">
-          Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
-        </div>
-        <div class="footer-right">
-          2.3.0
+          Copyright DevUMY 2021
         </div>
       </footer>
     </div>
