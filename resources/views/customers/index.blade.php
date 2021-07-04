@@ -41,21 +41,24 @@
                             <td>
                                 <div class="row">
                                     <div class="col">
-                                        <a href="" class="btn btn-primary btn-block">Detail</a>
+                                        <a href="" class="btn btn-primary btn-block"><i class="far fa-eye"></i></a>
                                     </div>
                                     <div class="col">
-                                        <a href="" class="btn btn-warning btn-block">Edit</a>
+                                        <a class="btn btn-warning btn-block" data-bs-toggle="modal" data-bs-target="#editModal{{ $customer->id }}">
+                                            <i class="far fa-edit"></i>
+                                        </a>
                                     </div>
                                     <div class="col">
                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('customers.destroy', $customer->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-block">HAPUS</button>
+                                            <button type="submit" class="btn btn-danger btn-block"><i class="far fa-trash-alt"></i></button>
                                         </form>
                                     </div>
                                 </div>
                             </td>
                         </tr>
+                        @include('includes.edit_customer')
                         @empty
                         <tr>
                             <td colspan="3">
