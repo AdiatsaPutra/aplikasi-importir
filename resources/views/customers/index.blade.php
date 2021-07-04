@@ -47,7 +47,11 @@
                                         <a href="" class="btn btn-warning btn-block">Edit</a>
                                     </div>
                                     <div class="col">
-                                        <a href="" class="btn btn-danger btn-block">Delete</a>
+                                        <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('customers.destroy', $customer->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-block">HAPUS</button>
+                                        </form>
                                     </div>
                                 </div>
                             </td>

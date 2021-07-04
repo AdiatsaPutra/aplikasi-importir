@@ -8,7 +8,7 @@
             <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Tambah Barang Import
             </button>
-            @include('includes.add_customer_modal')
+            @include('includes.add_barang_import_modal')
         </div>
     </div>
     <div class="card shadow mb-4">
