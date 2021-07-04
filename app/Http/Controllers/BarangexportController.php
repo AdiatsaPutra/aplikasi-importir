@@ -14,7 +14,8 @@ class BarangexportController extends Controller
      */
     public function index()
     {
-        //
+        $barangExport = BarangExport::all();
+        return view('barang_export.index', compact('barangExport'));
     }
 
     /**

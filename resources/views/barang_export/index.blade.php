@@ -1,12 +1,12 @@
 @extends('layouts.dashboard')
 @section('title')
-    Barang Import
+    Barang Export
 @endsection
 @section('content')
     <div class="row">
         <div class="col">
             <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Tambah Barang Import
+                Tambah Barang Export
             </button>
             @include('includes.add_customer_modal')
         </div>
@@ -29,7 +29,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($barangImport as $item)
+                        @forelse ($barangExport as $item)
                         <tr>
                             <td>
                                 {{ $item->nama }}
@@ -61,8 +61,8 @@
                             </td>
                         </tr>
                         @empty
-                        <tr>
-                            <td colspan="3">
+                        <tr class="text-center">
+                            <td colspan="6">
                                 Belum Ada Data
                             </td>
                         </tr>
