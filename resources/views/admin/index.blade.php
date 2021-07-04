@@ -1,9 +1,11 @@
 @extends('layouts.dashboard')
 @section('title')
-    Admin - Dashboard
+    Selamat Datang
 @endsection
 @section('content')
-
+<div class="dashboard-banner container-fluid mb-5 rounded">
+  {{-- <img class="img-fluid h-full" src="https://images.unsplash.com/photo-1605745341112-85968b19335b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y29udGFpbmVyJTIwc2hpcHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80" alt=""> --}}
+</div>
 <div class="row">
   <div class="col-xl-3 col-md-6 mb-4">
       <div class="card border-left-primary shadow h-100 py-2">

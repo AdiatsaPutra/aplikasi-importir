@@ -17,8 +17,19 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
     <!-- Custom styles for this template-->
     <link href="{{ asset('template/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <style>
+      .dashboard-banner{
+        background-image: url('https://p4.wallpaperbetter.com/wallpaper/1017/157/258/the-sky-sea-day-the-ship-wallpaper-preview.jpg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 500px;
+      }
+    </style>
 
 </head>
 
@@ -177,7 +188,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; UMY 2021</span>
                     </div>
                 </div>
             </footer>
@@ -226,6 +237,16 @@
 
     <!-- Page level plugins -->
     <script src="{{ asset('template/vendor/chart.js/Chart.min.js') }}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
+
+    <script>
+      $(document).ready(function() {
+        $('#table').DataTable();
+      } );
+    </script>
 
 </body>
 
