@@ -48,11 +48,9 @@
                   <div class="col mr-2">
                       <div class="text-lg font-weight-bold text-info text-uppercase mb-1">Barang Import
                       </div>
-                      <div class="row no-gutters align-items-center">
                           <div class="col-auto">
                               <h1 class="text-xl mb-0 mr-3 font-weight-bold text-gray-800">{{ App\Models\BarangImport::all()->count() }}</h1>
                           </div>
-                      </div>
                   </div>
                   <div class="col-auto">
                       <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
