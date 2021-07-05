@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BarangImport;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BarangimportController extends Controller
 {
@@ -19,16 +20,6 @@ class BarangimportController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -36,29 +27,18 @@ class BarangimportController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $foto = $request->file('foto');
+        $foto->storeAs('public/barang_import', $foto->hashName());
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\barangimport  $barangimport
-     * @return \Illuminate\Http\Response
-     */
-    public function show(barangimport $barangimport)
-    {
-        //
-    }
+        BarangImport::create([
+            'foto'   => $foto->hashName(),
+            'nama'   => $request->nama,
+            'jenis'  => $request->jenis,
+            'asal'   => $request->asal,
+            'tanggal_import'   => $request->tanggal_import,
+        ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\barangimport  $barangimport
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(barangimport $barangimport)
-    {
-        //
+        return redirect()->route('barang-import.index')->with('success', 'Data Barang Import Berhasil Disimpan!');
     }
 
     /**
@@ -68,7 +48,7 @@ class BarangimportController extends Controller
      * @param  \App\Models\barangimport  $barangimport
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, barangimport $barangimport)
+    public function update(Request $request, Barangimport $barangImport)
     {
         //
     }
@@ -79,8 +59,12 @@ class BarangimportController extends Controller
      * @param  \App\Models\barangimport  $barangimport
      * @return \Illuminate\Http\Response
      */
-    public function destroy(barangimport $barangimport)
+    public function destroy(BarangImport $barangImport)
     {
-        //
+
+        Storage::disk('local')->delete('public/barang_import/' . $barangImport->foto);
+        $barangImport->delete();
+
+        return redirect()->route('barang-import.index')->with('success', 'Data Barang Import Berhasil Disimpan!');
     }
 }

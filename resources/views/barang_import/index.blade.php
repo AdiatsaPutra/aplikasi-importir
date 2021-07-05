@@ -16,6 +16,9 @@
             <h6 class="m-0 font-weight-bold text-primary">Data Customer</h6>
         </div>
         <div class="card-body">
+            @if (Session::has('success'))
+                <p>berhasil</p>
+            @endif
             <div class="table-responsive">
                 <table class="table table-bordered" id="table" width="100%" cellspacing="0">
                     <thead>
@@ -44,24 +47,31 @@
                                 {{ $item->tanggal_import }}
                             </td>
                             <td>
-                                <img src="{{ $item->foto }}" alt="" width="150px">
+                                <img src="{{ Storage::url('public/barang_import/').$item->foto }}" alt="" width="100px">
                             </td>
                             <td>
                                 <div class="row">
                                     <div class="col">
-                                        <a href="" class="btn btn-primary btn-block">Detail</a>
+                                        <a class="btn btn-success btn-block" data-bs-toggle="modal" data-bs-target="#detailModal{{ $item->id }}">
+                                            <i class="far fa-eye"></i>
+                                        </a>
                                     </div>
                                     <div class="col">
                                         <a href="" class="btn btn-warning btn-block">Edit</a>
                                     </div>
                                     <div class="col">
-                                        <a href="" class="btn btn-danger btn-block">Delete</a>
+                                        <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('barang-import.destroy', $item->id) }}" method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-danger btn-block"><i class="far fa-trash-alt"></i></button>
+                                        </form>
                                     </div>
                                 </div>
                             </td>
                         </tr>
+                        @include('includes.detail_barang_import')
                         @empty
-                        <tr>
+                        <tr class="text-center">
                             <td colspan="6">
                                 Belum Ada Data
                             </td>
