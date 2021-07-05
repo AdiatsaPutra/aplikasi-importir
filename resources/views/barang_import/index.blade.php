@@ -62,7 +62,7 @@
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="3">
+                            <td colspan="6">
                                 Belum Ada Data
                             </td>
                         </tr>

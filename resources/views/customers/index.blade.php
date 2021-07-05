@@ -41,7 +41,9 @@
                             <td>
                                 <div class="row">
                                     <div class="col">
-                                        <a href="" class="btn btn-primary btn-block"><i class="far fa-eye"></i></a>
+                                        <a class="btn btn-success btn-block" data-bs-toggle="modal" data-bs-target="#detailModal{{ $customer->id }}">
+                                            <i class="far fa-eye"></i>
+                                        </a>
                                     </div>
                                     <div class="col">
                                         <a class="btn btn-warning btn-block" data-bs-toggle="modal" data-bs-target="#editModal{{ $customer->id }}">
@@ -58,10 +60,11 @@
                                 </div>
                             </td>
                         </tr>
+                        @include('includes.detail_customer')
                         @include('includes.edit_customer')
                         @empty
-                        <tr>
-                            <td colspan="3">
+                        <tr class="text-center">
+                            <td colspan="4">
                                 Belum Ada Data
                             </td>
                         </tr>
