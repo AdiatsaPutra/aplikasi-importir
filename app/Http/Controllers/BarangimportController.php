@@ -50,7 +50,31 @@ class BarangimportController extends Controller
      */
     public function update(Request $request, Barangimport $barangImport)
     {
-        //
+        if ($request->file('foto') == "") {
+
+            $barangImport->update([
+                'nama'     => $request->nama,
+                'jenis'   => $request->jenis,
+                'asal'   => $request->asal,
+                'tanggal_import'   => $request->tanggal_import,
+            ]);
+        } else {
+
+            Storage::disk('local')->delete('public/barang_import/' . $barangImport->foto);
+
+            $foto = $request->file('foto');
+            $foto->storeAs('public/barang_import', $foto->hashName());
+
+            $barangImport->update([
+                'foto'     => $foto->hashName(),
+                'nama'     => $request->nama,
+                'jenis'   => $request->jenis,
+                'asal'   => $request->asal,
+                'tanggal_import'   => $request->tanggal_import,
+            ]);
+        }
+
+        return redirect()->route('barang-import.index')->with('success', 'Data Berhasil Diupdate!');
     }
 
     /**

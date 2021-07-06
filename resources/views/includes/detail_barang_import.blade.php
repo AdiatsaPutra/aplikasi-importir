@@ -5,13 +5,49 @@
         <h5 class="modal-title" id="exampleModalLabel">{{ $item->nama }}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-            <div class="modal-body">
+            <div class="modal-body text-dark">
                 <div class="mb-3">
-                    <img src="{{ Storage::url('public/barang_import/').$item->foto }}" alt="" width="300px">
-                    <p>{{ $item->nama }}</p>
-                    <p>{{ $item->jenis }}</p>
-                    <p>{{ $item->asal }}</p>
-                    <p>{{ $item->tanggal_import }}</p>
+                    <img src="{{ Storage::url('public/barang_import/').$item->foto }}" alt="" class="img-fluid">
+                    <div class="row mt-3">
+                        <div class="col">
+                            <p>Nama Barang: </p>
+                            
+                        </div>
+                        <div class="col">
+                            <p>{{ $item->nama }}</p>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p>Jenis Barang: </p>
+                            
+                        </div>
+                        <div class="col">
+                            <p>{{ $item->jenis }}</p>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p>Asal Barang: </p>
+                            
+                        </div>
+                        <div class="col">
+                            <p>{{ $item->asal }}</p>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p>Tanggal Diimport: </p>
+                            
+                        </div>
+                        <div class="col">
+                            <p>{{ $item->tanggal_import }}</p>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

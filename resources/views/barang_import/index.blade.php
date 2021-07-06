@@ -57,7 +57,9 @@
                                         </a>
                                     </div>
                                     <div class="col">
-                                        <a href="" class="btn btn-warning btn-block">Edit</a>
+                                        <a class="btn btn-warning btn-block" data-bs-toggle="modal" data-bs-target="#editModal{{ $item->id }}">
+                                            <i class="far fa-edit"></i>
+                                        </a>
                                     </div>
                                     <div class="col">
                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('barang-import.destroy', $item->id) }}" method="POST">
@@ -70,6 +72,7 @@
                             </td>
                         </tr>
                         @include('includes.detail_barang_import')
+                        @include('includes.edit_barang_import')
                         @empty
                         <tr class="text-center">
                             <td colspan="6">
