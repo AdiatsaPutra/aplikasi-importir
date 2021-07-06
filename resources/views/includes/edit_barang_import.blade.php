@@ -27,6 +27,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="nama" class="form-label">Foto Barang</label>
+                    <img src="{{ Storage::url('public/barang_import/'). $item->foto }}" alt="" class="img-fluid mb-1">
                     <input type="file" class="form-control" id="foto" name="foto">
                     <small>Kosongkan jika tidak ingin mengubah foto barang</small>
                 </div>
