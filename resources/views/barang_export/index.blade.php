@@ -8,7 +8,7 @@
             <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Tambah Barang Export
             </button>
-            @include('includes.add_customer_modal')
+            @include('includes.add_barang_export_modal')
         </div>
     </div>
     <div class="card shadow mb-4">
@@ -23,7 +23,7 @@
                             <th>Nama</th>
                             <th>Jenis</th>
                             <th>Asal</th>
-                            <th>Tanggal Import</th>
+                            <th>Tanggal Export</th>
                             <th>Foto</th>
                             <th>Aksi</th>
                         </tr>
@@ -38,10 +38,10 @@
                                 {{ $item->jenis }}
                             </td>
                             <td>
-                                {{ $item->asal }}
+                                {{ $item->tujuan }}
                             </td>
                             <td>
-                                {{ $item->tanggal_import }}
+                                {{ $item->tanggal_export }}
                             </td>
                             <td>
                                 <img src="{{ $item->foto }}" alt="" width="150px">

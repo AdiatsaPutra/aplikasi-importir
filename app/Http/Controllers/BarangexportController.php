@@ -25,7 +25,7 @@ class BarangexportController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -36,7 +36,18 @@ class BarangexportController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $foto = $request->file('foto');
+        $foto->storeAs('public/barang_export', $foto->hashName());
+
+        BarangExport::create([
+            'foto'   => $foto->hashName(),
+            'nama'   => $request->nama,
+            'jenis'  => $request->jenis,
+            'tujuan'   => $request->tujuan,
+            'tanggal_export'   => $request->tanggal_export,
+        ]);
+
+        return redirect()->route('barang-export.index')->with('success', 'Data Barang Export Berhasil Disimpan!');
     }
 
     /**
@@ -81,6 +92,9 @@ class BarangexportController extends Controller
      */
     public function destroy(barangexport $barangexport)
     {
-        //
+        Storage::disk('local')->delete('public/export/' . $barangexport->foto);
+        $barangexport->delete();
+
+        return redirect()->route('barang-export.index')->with('success', 'Data Barang Export Berhasil Disimpan!');
     }
 }
