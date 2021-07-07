@@ -49,13 +49,21 @@
                             <td>
                                 <div class="row">
                                     <div class="col">
-                                        <a href="" class="btn btn-primary btn-block">Detail</a>
+                                        <a class="btn btn-success btn-block" data-bs-toggle="modal" data-bs-target="#detailModal{{ $item->id }}">
+                                            <i class="far fa-eye"></i>
+                                        </a>
                                     </div>
                                     <div class="col">
-                                        <a href="" class="btn btn-warning btn-block">Edit</a>
+                                        <a class="btn btn-warning btn-block" data-bs-toggle="modal" data-bs-target="#editModal{{ $item->id }}">
+                                            <i class="far fa-edit"></i>
+                                        </a>
                                     </div>
                                     <div class="col">
-                                        <a href="" class="btn btn-danger btn-block">Delete</a>
+                                        <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('barang-export.destroy', $item->id) }}" method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-danger btn-block"><i class="far fa-trash-alt"></i></button>
+                                        </form>
                                     </div>
                                 </div>
                             </td>

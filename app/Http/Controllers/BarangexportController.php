@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BarangExport;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BarangexportController extends Controller
 {
@@ -90,10 +91,10 @@ class BarangexportController extends Controller
      * @param  \App\Models\barangexport  $barangexport
      * @return \Illuminate\Http\Response
      */
-    public function destroy(barangexport $barangexport)
+    public function destroy(barangexport $barangExport)
     {
-        Storage::disk('local')->delete('public/export/' . $barangexport->foto);
-        $barangexport->delete();
+        Storage::disk('local')->delete('public/export/' . $barangExport->foto);
+        $barangExport->delete();
 
         return redirect()->route('barang-export.index')->with('success', 'Data Barang Export Berhasil Disimpan!');
     }
