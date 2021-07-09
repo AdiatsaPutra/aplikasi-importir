@@ -44,7 +44,7 @@
                                 {{ $item->tanggal_export }}
                             </td>
                             <td>
-                                <img src="{{ $item->foto }}" alt="" width="150px">
+                                <img src="{{ Storage::url('public/barang_export/').$item->foto }}" alt="" width="150px">
                             </td>
                             <td>
                                 <div class="row">
