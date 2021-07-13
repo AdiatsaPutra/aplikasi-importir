@@ -68,6 +68,8 @@
                                 </div>
                             </td>
                         </tr>
+                        @include('includes.detail_barang_export')
+                        @include('includes.edit_barang_export')
                         @empty
                         <tr class="text-center">
                             <td colspan="6">

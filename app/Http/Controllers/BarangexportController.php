@@ -97,7 +97,7 @@ class BarangexportController extends Controller
             $foto = $request->file('foto');
             $foto->storeAs('public/barang_export', $foto->hashName());
 
-            $barangImport->update([
+            $barangExport->update([
                 'foto'     => $foto->hashName(),
                 'nama'     => $request->nama,
                 'jenis'   => $request->jenis,
