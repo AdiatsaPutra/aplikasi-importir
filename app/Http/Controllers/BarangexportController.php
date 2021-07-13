@@ -80,9 +80,33 @@ class BarangexportController extends Controller
      * @param  \App\Models\barangexport  $barangexport
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, barangexport $barangexport)
+    public function update(Request $request, BarangExport $barangExport)
     {
-        //
+        if ($request->file('foto') == "") {
+
+            $barangExport->update([
+                'nama'     => $request->nama,
+                'jenis'   => $request->jenis,
+                'tujuan'   => $request->tujuan,
+                'tanggal_export'   => $request->tanggal_export,
+            ]);
+        } else {
+
+            Storage::disk('local')->delete('public/barang_export/' . $barangExport->foto);
+
+            $foto = $request->file('foto');
+            $foto->storeAs('public/barang_export', $foto->hashName());
+
+            $barangImport->update([
+                'foto'     => $foto->hashName(),
+                'nama'     => $request->nama,
+                'jenis'   => $request->jenis,
+                'tujuan'   => $request->tujuan,
+                'tanggal_export'   => $request->tanggal_export,
+            ]);
+        }
+
+        return redirect()->route('barang-export.index')->with('success', 'Data Berhasil Diupdate!');
     }
 
     /**
