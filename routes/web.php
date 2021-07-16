@@ -20,14 +20,23 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Auth::routes();
+Auth::routes([
+    'register' => false,
+    'reset' => false,
+    'verify' => false,
+  ]);
 
-Route::get('/admin', function () {
-    return view('admin.index');
-});
+Route::prefix('dashboard')
+    ->middleware('admin')
+    ->group(function () {
+        Route::get('/admin', function () {
+            return view('admin.index');
+        });
+        
+        Route::resources([
+            'customers' => CustomerController::class,
+            'barang-import' => BarangimportController::class,
+            'barang-export' => BarangexportController::class,
+        ]);
+    });
 
-Route::resources([
-    'customers' => CustomerController::class,
-    'barang-import' => BarangimportController::class,
-    'barang-export' => BarangexportController::class,
-]);
